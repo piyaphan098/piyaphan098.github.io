@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piyaphan Sukpong — DevOps Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg2: #0f1419;
+    --bg3: #141a23;
+    --border: #1e2a38;
+    --green: #39d353;
+    --cyan: #58a6ff;
+    --orange: #f0883e;
+    --purple: #bc8cff;
+    --yellow: #e3b341;
+    --red: #f85149;
+    --text: #cdd9e5;
+    --muted: #768390;
+    --card: #161b22;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Scanline overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* Nav */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(10,14,20,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+  }
+  .nav-logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--green);
+  }
+  .nav-logo span { color: var(--muted); }
+  .nav-links { display: flex; gap: 1.5rem; }
+  .nav-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--cyan); }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 6rem 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .hero-content { width: 100%; }
+  .terminal-line {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .terminal-line .prompt { color: var(--green); }
+  .terminal-line .cmd { color: var(--cyan); }
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 .accent { color: var(--green); }
+  .hero-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--orange);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .hero-title::before { content: '//'; color: var(--muted); }
+  .hero p {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2.5rem; }
+  .badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid;
+  }
+  .badge-green { color: var(--green); border-color: rgba(57,211,83,0.3); background: rgba(57,211,83,0.05); }
+  .badge-cyan { color: var(--cyan); border-color: rgba(88,166,255,0.3); background: rgba(88,166,255,0.05); }
+  .badge-orange { color: var(--orange); border-color: rgba(240,136,62,0.3); background: rgba(240,136,62,0.05); }
+  .badge-purple { color: var(--purple); border-color: rgba(188,140,255,0.3); background: rgba(188,140,255,0.05); }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary { background: var(--green); color: #0a0e14; border-color: var(--green); font-weight: 600; }
+  .btn-primary:hover { background: #2ec748; }
+  .btn-secondary { background: transparent; color: var(--cyan); border-color: rgba(88,166,255,0.4); }
+  .btn-secondary:hover { background: rgba(88,166,255,0.08); }
+
+  /* Sections */
+  section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
+  .section-header {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--green);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 200px;
+  }
+  .section-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  /* Skills */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+  .skill-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+    transition: border-color 0.2s;
+  }
+  .skill-card:hover { border-color: var(--green); }
+  .skill-card-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .skill-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text);
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  /* Experience */
+  .exp-list { display: flex; flex-direction: column; gap: 1.5rem; }
+  .exp-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border-left: 3px solid var(--green);
+    transition: border-color 0.2s;
+  }
+  .exp-card:hover { border-color: var(--cyan); border-left-color: var(--cyan); }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; }
+  .exp-title { font-size: 15px; font-weight: 600; color: #fff; }
+  .exp-company { font-size: 13px; color: var(--cyan); margin-top: 2px; }
+  .exp-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+  .exp-list-items { list-style: none; }
+  .exp-list-items li {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 3px 0;
+    padding-left: 1rem;
+    position: relative;
+  }
+  .exp-list-items li::before { content: '›'; position: absolute; left: 0; color: var(--green); }
+
+  /* Projects */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-card:hover { border-color: var(--cyan); transform: translateY(-2px); }
+  .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
+  .project-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .project-status {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid;
+  }
+  .status-done { color: var(--green); border-color: rgba(57,211,83,0.3); background: rgba(57,211,83,0.05); }
+  .status-wip { color: var(--yellow); border-color: rgba(227,179,65,0.3); background: rgba(227,179,65,0.05); }
+  .project-name { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 0.5rem; }
+  .project-desc { font-size: 13px; color: var(--muted); flex: 1; margin-bottom: 1rem; line-height: 1.6; }
+  .project-stack { display: flex; flex-wrap: wrap; gap: 5px; }
+  .stack-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--purple);
+    background: rgba(188,140,255,0.08);
+    border: 1px solid rgba(188,140,255,0.2);
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+
+  /* CI/CD diagram */
+  .pipeline {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+  }
+  .pipeline-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .pipeline-flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: nowrap;
+    min-width: max-content;
+  }
+  .pipe-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .pipe-node {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text);
+    white-space: nowrap;
+  }
+  .pipe-node.active { border-color: var(--green); color: var(--green); }
+  .pipe-node.blue { border-color: var(--cyan); color: var(--cyan); }
+  .pipe-node.orange { border-color: var(--orange); color: var(--orange); }
+  .pipe-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--muted); }
+  .pipe-arrow {
+    color: var(--border);
+    font-size: 18px;
+    padding: 0 6px;
+    margin-bottom: 12px;
+  }
+
+  /* Contact */
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+  .contact-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .contact-card:hover { border-color: var(--cyan); }
+  .contact-icon {
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--cyan);
+    flex-shrink: 0;
+  }
+  .contact-info-label { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+  .contact-info-val { font-size: 13px; color: var(--text); font-weight: 500; }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* Animations */
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  .cursor { display: inline-block; width: 8px; height: 15px; background: var(--green); animation: blink 1s infinite; vertical-align: middle; margin-left: 2px; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  .hero-content > * { animation: fadeUp 0.6s ease backwards; }
+  .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-content > *:nth-child(4) { animation-delay: 0.4s; }
+  .hero-content > *:nth-child(5) { animation-delay: 0.5s; }
+  .hero-content > *:nth-child(6) { animation-delay: 0.6s; }
+
+  /* Grid bg */
+  .hero { position: relative; }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: -200px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle at center, rgba(57,211,83,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><span>~/</span>piyaphan<span>.sh</span></div>
+  <div class="nav-links">
+    <a href="#about">about</a>
+    <a href="#skills">skills</a>
+    <a href="#experience">experience</a>
+    <a href="#projects">projects</a>
+    <a href="#contact">contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="terminal-line"><span class="prompt">❯</span> <span class="cmd">whoami</span></div>
+    <h1>Piyaphan<br><span class="accent">Sukpong</span><span class="cursor"></span></h1>
+    <div class="hero-title">DevOps Engineer — AWS · Terraform · CI/CD · Docker · Kubernetes</div>
+    <p>DevOps-oriented engineer with hands-on experience designing, deploying, and maintaining production systems on AWS and on-premise infrastructure. Open to international opportunities.</p>
+    <div class="hero-badges">
+      <span class="badge badge-green">● Available</span>
+      <span class="badge badge-cyan">Chonburi, Thailand</span>
+      <span class="badge badge-orange">2+ yrs experience</span>
+      <span class="badge badge-purple">Open to relocation</span>
+    </div>
+    <div class="hero-actions">
+      <a href="mailto:piyaphan1584@gmail.com" class="btn btn-primary">✉ contact me</a>
+      <a href="https://www.linkedin.com/in/piyaphan" class="btn btn-secondary">↗ linkedin</a>
+      <a href="https://gist.github.com/piyaphan098" class="btn btn-secondary">↗ github</a>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">01 // skills</div>
+  <div class="section-title">Tech stack</div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-card-title">DevOps / Cloud</div>
+      <div class="skill-tags">
+        <span class="skill-tag">AWS EC2</span>
+        <span class="skill-tag">AWS S3</span>
+        <span class="skill-tag">Terraform</span>
+        <span class="skill-tag">GitHub Actions</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">K3s</span>
+        <span class="skill-tag">Helm</span>
+        <span class="skill-tag">Nginx</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Kubernetes</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Deployments</span>
+        <span class="skill-tag">Services</span>
+        <span class="skill-tag">Ingress</span>
+        <span class="skill-tag">Health Probes</span>
+        <span class="skill-tag">Resource Limits</span>
+        <span class="skill-tag">kubectl</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Monitoring</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Prometheus</span>
+        <span class="skill-tag">Grafana</span>
+        <span class="skill-tag">Log Analysis</span>
+        <span class="skill-tag">Alerting</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Backend / Web</div>
+      <div class="skill-tags">
+        <span class="skill-tag">FastAPI</span>
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Next.js</span>
+        <span class="skill-tag">REST API</span>
+        <span class="skill-tag">Linux (Ubuntu)</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Database</div>
+      <div class="skill-tags">
+        <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">MariaDB</span>
+        <span class="skill-tag">SQLite</span>
+        <span class="skill-tag">Prisma</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">IaC / Security</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Terraform</span>
+        <span class="skill-tag">GitHub Secrets</span>
+        <span class="skill-tag">UFW Firewall</span>
+        <span class="skill-tag">PAT Tokens</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">02 // experience</div>
+  <div class="section-title">Work history</div>
+  <div class="exp-list">
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">System Engineer / DevOps</div>
+          <div class="exp-company">C2K IT Service — Bangkok</div>
+        </div>
+        <span class="exp-date">02/2023 – Present</span>
+      </div>
+      <ul class="exp-list-items">
+        <li>Maintained and monitored production systems for high availability across internal infrastructure</li>
+        <li>Performed root cause analysis (RCA) and resolved system-level issues using logs and metrics</li>
+        <li>Implemented monitoring and alerting to proactively detect performance bottlenecks</li>
+        <li>Automated routine operational tasks to reduce manual intervention</li>
+        <li>Managed Linux-based systems (Ubuntu) including service configuration and system security</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Key Project: NetPulse</div>
+          <div class="exp-company">Network Monitoring System (Production Deployment in Progress)</div>
+        </div>
+        <span class="exp-date">2023 – Present</span>
+      </div>
+      <ul class="exp-list-items">
+        <li>Designed and implemented a network monitoring system for internal infrastructure</li>
+        <li>Built real-time dashboard for bandwidth analytics, device tracking, and traffic visualization</li>
+        <li>Implemented centralized web access control and domain filtering per device</li>
+        <li>Developed backend APIs and log processing using SQLite for data aggregation</li>
+        <li>Automated reporting (CSV/ZIP export) and alert notifications based on bandwidth thresholds</li>
+        <li>Secured deployment using UFW firewall and optimized system performance</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header">03 // projects</div>
+  <div class="section-title">Featured work</div>
+
+  <!-- Pipeline visual -->
+  <div class="pipeline">
+    <div class="pipeline-title"># devops-portfolio CI/CD pipeline</div>
+    <div class="pipeline-flow">
+      <div class="pipe-step">
+        <div class="pipe-node active">git push</div>
+        <div class="pipe-label">trigger</div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="pipe-node active">build</div>
+        <div class="pipe-label">docker build</div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="pipe-node blue">push</div>
+        <div class="pipe-label">docker hub</div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="pipe-node blue">runner</div>
+        <div class="pipe-label">self-hosted</div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="pipe-node orange">deploy</div>
+        <div class="pipe-label">k3s cluster</div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="pipe-node active">✓ live</div>
+        <div class="pipe-label">:30080</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:rgba(57,211,83,0.1);">⚙</div>
+        <span class="project-status status-done">completed</span>
+      </div>
+      <div class="project-name">K3s CI/CD Pipeline</div>
+      <div class="project-desc">End-to-end CI/CD pipeline with GitHub Actions, Docker Hub, Self-hosted runner, and K3s deployment. Includes auto-rollback, health checks, and Prometheus/Grafana monitoring.</div>
+      <div class="project-stack">
+        <span class="stack-tag">GitHub Actions</span>
+        <span class="stack-tag">Docker</span>
+        <span class="stack-tag">K3s</span>
+        <span class="stack-tag">Prometheus</span>
+        <span class="stack-tag">Grafana</span>
+        <span class="stack-tag">Helm</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:rgba(88,166,255,0.1);">☁</div>
+        <span class="project-status status-done">completed</span>
+      </div>
+      <div class="project-name">AWS Cloud Portfolio</div>
+      <div class="project-desc">Deployed containerized web application on AWS EC2 using Docker and Nginx reverse proxy. Managed infrastructure with Terraform IaC and hosted static assets on S3.</div>
+      <div class="project-stack">
+        <span class="stack-tag">AWS EC2</span>
+        <span class="stack-tag">Terraform</span>
+        <span class="stack-tag">Docker</span>
+        <span class="stack-tag">Nginx</span>
+        <span class="stack-tag">S3</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:rgba(240,136,62,0.1);">◈</div>
+        <span class="project-status status-wip">in progress</span>
+      </div>
+      <div class="project-name">NetPulse</div>
+      <div class="project-desc">Network monitoring system with real-time dashboard for bandwidth analytics, device tracking, and traffic visualization. Centralized access control with automated alerting.</div>
+      <div class="project-stack">
+        <span class="stack-tag">Node.js</span>
+        <span class="stack-tag">SQLite</span>
+        <span class="stack-tag">FastAPI</span>
+        <span class="stack-tag">UFW</span>
+        <span class="stack-tag">Linux</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:rgba(188,140,255,0.1);">▣</div>
+        <span class="project-status status-done">completed</span>
+      </div>
+      <div class="project-name">IT ERP System</div>
+      <div class="project-desc">Full-stack ERP system with Next.js, TypeScript, Prisma, and MariaDB. Deployed on AWS EC2 with complete database schema design and backend logic.</div>
+      <div class="project-stack">
+        <span class="stack-tag">Next.js</span>
+        <span class="stack-tag">TypeScript</span>
+        <span class="stack-tag">Prisma</span>
+        <span class="stack-tag">MariaDB</span>
+        <span class="stack-tag">AWS EC2</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:rgba(227,179,65,0.1);">◎</div>
+        <span class="project-status status-done">completed</span>
+      </div>
+      <div class="project-name">Slip Verification System</div>
+      <div class="project-desc">OCR-based payment slip verification using Node.js and Tesseract OCR. Containerized with Docker Compose, deployed on AWS EC2 with CPU monitoring and alerting.</div>
+      <div class="project-stack">
+        <span class="stack-tag">Node.js</span>
+        <span class="stack-tag">Tesseract OCR</span>
+        <span class="stack-tag">Docker</span>
+        <span class="stack-tag">AWS EC2</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:rgba(248,81,73,0.1);">◉</div>
+        <span class="project-status status-done">completed</span>
+      </div>
+      <div class="project-name">Network Segmentation</div>
+      <div class="project-desc">Configured VLAN segmentation for IP phone network to improve performance and security. Coordinated server room relocation with minimal downtime.</div>
+      <div class="project-stack">
+        <span class="stack-tag">VLAN</span>
+        <span class="stack-tag">Network</span>
+        <span class="stack-tag">Infrastructure</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">04 // contact</div>
+  <div class="section-title">Get in touch</div>
+  <div class="contact-grid">
+    <a href="mailto:piyaphan1584@gmail.com" class="contact-card">
+      <div class="contact-icon">@</div>
+      <div>
+        <div class="contact-info-label">email</div>
+        <div class="contact-info-val">piyaphan1584@gmail.com</div>
+      </div>
+    </a>
+    <a href="tel:+66989040369" class="contact-card">
+      <div class="contact-icon">#</div>
+      <div>
+        <div class="contact-info-label">phone</div>
+        <div class="contact-info-val">+66 989040369</div>
+      </div>
+    </a>
+    <a href="https://www.linkedin.com/in/piyaphan" class="contact-card">
+      <div class="contact-icon">in</div>
+      <div>
+        <div class="contact-info-label">linkedin</div>
+        <div class="contact-info-val">linkedin.com/in/piyaphan</div>
+      </div>
+    </a>
+    <a href="https://gist.github.com/piyaphan098" class="contact-card">
+      <div class="contact-icon">gh</div>
+      <div>
+        <div class="contact-info-label">github</div>
+        <div class="contact-info-val">gist.github.com/piyaphan098</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <span style="color:var(--green)">❯</span> piyaphan sukpong · devops engineer · chonburi, thailand<br>
+  <span style="opacity:0.4; margin-top:0.5rem; display:block;">built with passion for infrastructure</span>
+</footer>
+
+</body>
+</html>
