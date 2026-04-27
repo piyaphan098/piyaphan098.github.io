@@ -661,7 +661,7 @@ nav{
 // ══════════════════════════════
 // CHAT BOT — แก้ API KEY ตรงนี้
 // ══════════════════════════════
-const GEMINI_KEY = 'AIzaSyA9QE3saq0EhmX3uGU1hQZlJTivvdLnTvc';
+const GEMINI_KEY = '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';
 
 const CHAT_SYSTEM = `You are a DevOps assistant bot embedded in Piyaphan Sukpong's portfolio website.
 
@@ -727,19 +727,28 @@ async function chatSend(){
   chatBusy=true;
 
   try{
-    if(GEMINI_KEY==='YOUR_GEMINI_API_KEY')throw new Error('กรุณาใส่ Gemini API Key ก่อนนะครับ ดูแบนเนอร์ด้านบน');
-    const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${GEMINI_KEY}`,{
+    const res=await fetch('https://openrouter.ai/api/v1/chat/completions',{
       method:'POST',
-      headers:{'Content-Type':'application/json'},
+      headers:{
+        'Content-Type':'application/json',
+        'Authorization':`Bearer ${GEMINI_KEY}`,
+        'HTTP-Referer':'https://piyaphan098.github.io'
+      },
       body:JSON.stringify({
-        system_instruction:{parts:[{text:CHAT_SYSTEM}]},
-        contents:chatHistory,
-        generationConfig:{maxOutputTokens:400,temperature:0.7}
+        model:'meta-llama/llama-3.1-8b-instruct:free',
+        messages:[
+          {role:'system',content:CHAT_SYSTEM},
+          ...chatHistory.map(h=>({
+            role:h.role==='model'?'assistant':h.role,
+            content:h.parts[0].text
+          }))
+        ],
+        max_tokens:400
       })
     });
     const data=await res.json();
     if(!res.ok)throw new Error(data.error?.message||'API error');
-    const reply=data.candidates?.[0]?.content?.parts?.[0]?.text||'ขอโทษครับ ไม่สามารถตอบได้ตอนนี้';
+    const reply=data.choices?.[0]?.message?.content||'ขอโทษครับ ไม่สามารถตอบได้ตอนนี้';
     chatHistory.push({role:'model',parts:[{text:reply}]});
     document.getElementById('ch-typing')?.remove();
     chatAppend(reply,'bot');
