@@ -661,7 +661,7 @@ nav{
 // ══════════════════════════════
 // CHAT BOT — แก้ API KEY ตรงนี้
 // ══════════════════════════════
-const GEMINI_KEY = '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';
+const WORKER_URL = 'https://devops-bot.piyaphan1584.workers.dev';
 
 const CHAT_SYSTEM = `You are a DevOps assistant bot embedded in Piyaphan Sukpong's portfolio website.
 
@@ -727,13 +727,9 @@ async function chatSend(){
   chatBusy=true;
 
   try{
-    const res=await fetch('https://openrouter.ai/api/v1/chat/completions',{
+    const res=await fetch(WORKER_URL,{
       method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'Authorization':`Bearer ${GEMINI_KEY}`,
-        'HTTP-Referer':'https://piyaphan098.github.io'
-      },
+      headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
         model:'meta-llama/llama-3.1-8b-instruct:free',
         messages:[
