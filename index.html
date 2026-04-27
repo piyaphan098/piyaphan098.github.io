@@ -51,6 +51,78 @@ body.lang-th{font-family:var(--thai)}
 
 /* cursor: default browser cursor */
 
+/* ── CHAT WIDGET ── */
+#chat-fab{
+  position:fixed;bottom:28px;right:28px;z-index:900;
+  width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 24px rgba(0,255,163,.35);
+  transition:transform .2s,box-shadow .2s;
+}
+#chat-fab:hover{transform:scale(1.1);box-shadow:0 0 36px rgba(0,255,163,.55)}
+#chat-fab svg{width:22px;height:22px;fill:#06080d;transition:.2s}
+
+#chat-win{
+  position:fixed;bottom:92px;right:28px;z-index:899;
+  width:350px;max-width:calc(100vw - 32px);height:500px;
+  background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  display:flex;flex-direction:column;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.7),0 0 0 1px rgba(0,255,163,.08);
+  transform:scale(.95) translateY(12px);opacity:0;pointer-events:none;
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);
+}
+#chat-win.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all}
+
+.ch-head{
+  padding:12px 16px;background:var(--surface2);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;flex-shrink:0;
+}
+.ch-av{
+  width:30px;height:30px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  display:flex;align-items:center;justify-content:center;font-size:13px;
+}
+.ch-name{font-size:12px;font-weight:700;color:var(--text)}
+.ch-stat{font-family:var(--mono);font-size:10px;color:var(--accent);display:flex;align-items:center;gap:4px}
+.ch-stat::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);display:inline-block;box-shadow:0 0 6px var(--accent)}
+
+#ch-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+
+.cm{max-width:85%;padding:9px 13px;border-radius:10px;font-size:12.5px;line-height:1.6;animation:cmin .2s ease}
+.cm.bot{background:var(--surface2);border:1px solid var(--border);border-bottom-left-radius:3px;align-self:flex-start;color:var(--text)}
+.cm.user{background:linear-gradient(135deg,var(--accent),#00c4a0);border-bottom-right-radius:3px;align-self:flex-end;color:#06080d;font-weight:600}
+.cm.err{background:rgba(255,94,58,.1);border:1px solid var(--accent3);color:var(--accent3);align-self:flex-start;border-radius:10px}
+
+.ch-typing{display:flex;gap:4px;padding:10px 13px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;border-bottom-left-radius:3px;align-self:flex-start;width:fit-content}
+.ch-typing span{width:5px;height:5px;border-radius:50%;background:var(--muted);animation:cbt 1.2s infinite}
+.ch-typing span:nth-child(2){animation-delay:.2s}
+.ch-typing span:nth-child(3){animation-delay:.4s}
+
+.ch-qr{display:flex;flex-wrap:wrap;gap:5px;padding:0 14px 10px;flex-shrink:0}
+.ch-q{font-family:var(--mono);font-size:10px;padding:4px 9px;border:1px solid var(--border);border-radius:20px;background:transparent;color:var(--accent2);cursor:pointer;transition:all .18s;white-space:nowrap}
+.ch-q:hover{background:var(--accent2);color:#06080d;border-color:var(--accent2)}
+
+.ch-inp-row{padding:10px 12px;background:var(--surface2);border-top:1px solid var(--border);display:flex;gap:7px;align-items:center;flex-shrink:0}
+#ch-inp{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:7px 11px;color:var(--text);font-family:var(--mono);font-size:11px;outline:none;transition:border-color .2s}
+#ch-inp:focus{border-color:var(--accent)}
+#ch-inp::placeholder{color:var(--muted)}
+#ch-send{width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity .2s}
+#ch-send:hover{opacity:.8}
+#ch-send svg{width:14px;height:14px;fill:#06080d}
+
+#ch-apibanner{
+  background:rgba(0,200,255,.07);border:1px solid rgba(0,200,255,.2);border-radius:6px;
+  margin:10px 14px 0;padding:9px 12px;flex-shrink:0;
+  font-family:var(--mono);font-size:10px;color:#7dd3fc;line-height:1.7;
+}
+#ch-apibanner a{color:var(--accent);text-decoration:none}
+#ch-apibanner a:hover{text-decoration:underline}
+
+@keyframes cmin{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+@keyframes cbt{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+
 /* ── SCROLL PROGRESS ── */
 #prog{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:1000;width:0%;box-shadow:0 0 8px var(--accent);transition:width .15s}
 
@@ -546,6 +618,136 @@ nav{
   <p style="font-family:var(--mono);font-size:10px;color:var(--border);margin-top:48px" id="footer-l" data-en="© 2026 Piyaphan Sukpong · Chonburi, Thailand" data-th="© 2026 ปิยะพันธ์ สุขผ่อง · ชลบุรี ประเทศไทย">© 2026 Piyaphan Sukpong · Chonburi, Thailand</p>
 </div>
 </div>
+
+<!-- ── CHAT WIDGET ── -->
+<button id="chat-fab" onclick="chatToggle()" title="Chat with my DevOps bot">
+  <svg id="cf-chat" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+  <svg id="cf-close" viewBox="0 0 24 24" style="display:none"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+</button>
+
+<div id="chat-win">
+  <div class="ch-head">
+    <div class="ch-av">🤖</div>
+    <div>
+      <div class="ch-name">Piyaphan's DevOps Bot</div>
+      <div class="ch-stat">Online · Gemini AI</div>
+    </div>
+  </div>
+  <div id="ch-apibanner">
+    ⚠️ ใส่ Gemini API Key ก่อนนะครับ<br>
+    สมัครฟรี → <a href="https://aistudio.google.com/apikey" target="_blank">aistudio.google.com/apikey</a><br>
+    แล้วแก้ <code>YOUR_GEMINI_API_KEY</code> ในโค้ด
+  </div>
+  <div id="ch-msgs">
+    <div class="cm bot">สวัสดีครับ! ผม DevOps Bot ของ Piyaphan 👋<br><br>ถามได้เลยครับ — เรื่อง DevOps, โปรเจกต์, หรือวิธีติดต่อ</div>
+  </div>
+  <div class="ch-qr" id="ch-qr">
+    <button class="ch-q" onclick="chatQuick('โปรเจกต์ที่ทำมีอะไรบ้าง?')">📂 Projects</button>
+    <button class="ch-q" onclick="chatQuick('ทักษะ DevOps ของ Piyaphan มีอะไรบ้าง?')">⚙️ Skills</button>
+    <button class="ch-q" onclick="chatQuick('ติดต่อ Piyaphan ได้ยังไง?')">📬 Contact</button>
+    <button class="ch-q" onclick="chatQuick('อธิบาย Docker ให้หน่อย')">🐳 Docker</button>
+  </div>
+  <div class="ch-inp-row">
+    <input id="ch-inp" type="text" placeholder="ถามเรื่อง DevOps หรือโปรเจกต์..." onkeydown="if(event.key==='Enter')chatSend()"/>
+    <button id="ch-send" onclick="chatSend()">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════
+// CHAT BOT — แก้ API KEY ตรงนี้
+// ══════════════════════════════
+const GEMINI_KEY = 'AIzaSyA9QE3saq0EhmX3uGU1hQZlJTivvdLnTvc';
+
+const CHAT_SYSTEM = `You are a DevOps assistant bot embedded in Piyaphan Sukpong's portfolio website.
+
+About Piyaphan Sukpong:
+- DevOps Engineer based in Chonburi, Thailand
+- Skills: Docker, Kubernetes, CI/CD, Terraform, AWS, Cloudflare Workers, VMware, GitHub Actions, Monitoring/Observability
+- Projects:
+  • NetPulse — network monitoring system on VMware
+  • Golf Cart Tracking — Cloudflare Workers + Terraform + CI/CD
+  • Slip Verification — Docker + OCR + AWS
+  • ERP System — Full-stack + AWS
+- Contact: piyaphan1584@gmail.com | LinkedIn: linkedin.com/in/piyaphan | Phone: +66 989 040 369
+- GitHub: piyaphan098.github.io
+- Available for DevOps roles and freelance infrastructure work
+
+Your role:
+- Answer DevOps questions clearly (CI/CD, Docker, K8s, Terraform, AWS, monitoring, etc.)
+- Tell visitors about Piyaphan's projects and skills
+- Help with contact or hiring inquiries
+- Be friendly, concise, and technical when needed
+- Reply in the same language the user writes in (Thai or English)
+- Keep answers short (2-4 sentences) unless a detailed explanation is needed`;
+
+let chatOpen=false,chatBusy=false;
+const chatHistory=[];
+
+function chatToggle(){
+  chatOpen=!chatOpen;
+  document.getElementById('chat-win').classList.toggle('open',chatOpen);
+  document.getElementById('cf-chat').style.display=chatOpen?'none':'block';
+  document.getElementById('cf-close').style.display=chatOpen?'block':'none';
+  if(chatOpen)document.getElementById('ch-inp').focus();
+}
+
+function chatQuick(t){
+  document.getElementById('ch-qr').style.display='none';
+  document.getElementById('ch-inp').value=t;
+  chatSend();
+}
+
+function chatAppend(text,type){
+  const el=document.createElement('div');
+  el.className='cm '+type;
+  el.textContent=text;
+  document.getElementById('ch-msgs').appendChild(el);
+  const m=document.getElementById('ch-msgs');
+  m.scrollTop=m.scrollHeight;
+}
+
+async function chatSend(){
+  const inp=document.getElementById('ch-inp');
+  const text=inp.value.trim();
+  if(!text||chatBusy)return;
+  inp.value='';
+  chatAppend(text,'user');
+  chatHistory.push({role:'user',parts:[{text}]});
+
+  const typing=document.createElement('div');
+  typing.className='ch-typing';typing.id='ch-typing';
+  typing.innerHTML='<span></span><span></span><span></span>';
+  document.getElementById('ch-msgs').appendChild(typing);
+  document.getElementById('ch-msgs').scrollTop=9999;
+  chatBusy=true;
+
+  try{
+    if(GEMINI_KEY==='YOUR_GEMINI_API_KEY')throw new Error('กรุณาใส่ Gemini API Key ก่อนนะครับ ดูแบนเนอร์ด้านบน');
+    const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        system_instruction:{parts:[{text:CHAT_SYSTEM}]},
+        contents:chatHistory,
+        generationConfig:{maxOutputTokens:400,temperature:0.7}
+      })
+    });
+    const data=await res.json();
+    if(!res.ok)throw new Error(data.error?.message||'API error');
+    const reply=data.candidates?.[0]?.content?.parts?.[0]?.text||'ขอโทษครับ ไม่สามารถตอบได้ตอนนี้';
+    chatHistory.push({role:'model',parts:[{text:reply}]});
+    document.getElementById('ch-typing')?.remove();
+    chatAppend(reply,'bot');
+  }catch(e){
+    document.getElementById('ch-typing')?.remove();
+    chatAppend('❌ '+e.message,'err');
+  }
+  chatBusy=false;
+}
+</script>
 
 <script>
 // ════════════════════════
