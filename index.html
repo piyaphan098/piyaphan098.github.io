@@ -642,11 +642,13 @@ nav{
     <div class="cm bot">สวัสดีครับ! ผม DevOps Bot ของ Piyaphan 👋<br><br>ถามได้เลยครับ — เรื่อง DevOps, โปรเจกต์, หรือวิธีติดต่อ</div>
   </div>
   <div class="ch-qr" id="ch-qr">
-    <button class="ch-q" onclick="chatQuick('โปรเจกต์ที่ทำมีอะไรบ้าง?')">📂 Projects</button>
-    <button class="ch-q" onclick="chatQuick('ทักษะ DevOps ของ Piyaphan มีอะไรบ้าง?')">⚙️ Skills</button>
-    <button class="ch-q" onclick="chatQuick('ติดต่อ Piyaphan ได้ยังไง?')">📬 Contact</button>
-    <button class="ch-q" onclick="chatQuick('อธิบาย Docker ให้หน่อย')">🐳 Docker</button>
-  </div>
+  <button class="ch-q" onclick="chatQuick('โปรเจกต์ที่ทำมีอะไรบ้าง?')">📂 Projects</button>
+  <button class="ch-q" onclick="chatQuick('ทักษะ DevOps ของ Piyaphan มีอะไรบ้าง?')">⚙️ Skills</button>
+  <button class="ch-q" onclick="chatQuick('ติดต่อ Piyaphan ได้ยังไง?')">📬 Contact</button>
+  <button class="ch-q" onclick="chatQuick('อธิบาย Docker ให้หน่อย')">🐳 Docker</button>
+  <button class="ch-q" onclick="chatQuick('Terraform คืออะไร?')">🏗️ Terraform</button>
+  <button class="ch-q" onclick="chatQuick('รับ Freelance ไหม?')">💼 Freelance</button>
+</div>
   <div class="ch-inp-row">
     <input id="ch-inp" type="text" placeholder="ถามเรื่อง DevOps หรือโปรเจกต์..." onkeydown="if(event.key==='Enter')chatSend()"/>
     <button id="ch-send" onclick="chatSend()">
@@ -695,7 +697,7 @@ function chatToggle(){
 }
 
 function chatQuick(t){
-  document.getElementById('ch-qr').style.display='none';
+  //document.getElementById('ch-qr').style.display='none';
   document.getElementById('ch-inp').value=t;
   chatSend();
 }
