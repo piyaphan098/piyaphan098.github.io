@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Piyaphan Sukpong — DevOps Engineer</title>
+<title>Piyaphan Sukpong — Technical Project Coordinator</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Bebas+Neue&family=Noto+Sans+Thai:wght@400;600;700;800&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#06080d;--surface:#0d1117;--surface2:#161b22;--border:#1e2733;
-  --accent:#00ffa3;--accent2:#00c8ff;--accent3:#ff5e3a;
-  --text:#e8f0f8;--muted:#6b7b8d;
+  --bg:#f5ece0;--surface:#ffffff;--surface2:#efe2d0;--border:#d9c4a8;
+  --accent:#b6712e;--accent2:#8a4a23;--accent3:#c84e2d;
+  --text:#3a2a1c;--muted:#8a7560;
   --mono:'Space Mono',monospace;--display:'Bebas Neue',sans-serif;
   --body:'Outfit',sans-serif;--thai:'Noto Sans Thai',sans-serif;
 }
@@ -57,18 +57,18 @@ body.lang-th{font-family:var(--thai)}
   width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;
   background:linear-gradient(135deg,var(--accent),var(--accent2));
   display:flex;align-items:center;justify-content:center;
-  box-shadow:0 0 24px rgba(0,255,163,.35);
+  box-shadow:0 0 24px rgba(182,113,46,.35);
   transition:transform .2s,box-shadow .2s;
 }
-#chat-fab:hover{transform:scale(1.1);box-shadow:0 0 36px rgba(0,255,163,.55)}
-#chat-fab svg{width:22px;height:22px;fill:#06080d;transition:.2s}
+#chat-fab:hover{transform:scale(1.1);box-shadow:0 0 36px rgba(182,113,46,.55)}
+#chat-fab svg{width:22px;height:22px;fill:#fdf8f2;transition:.2s}
 
 #chat-win{
   position:fixed;bottom:92px;right:28px;z-index:899;
   width:350px;max-width:calc(100vw - 32px);height:500px;
   background:var(--surface);border:1px solid var(--border);border-radius:12px;
   display:flex;flex-direction:column;overflow:hidden;
-  box-shadow:0 20px 60px rgba(0,0,0,.7),0 0 0 1px rgba(0,255,163,.08);
+  box-shadow:0 20px 60px rgba(58,42,28,.18),0 0 0 1px rgba(182,113,46,.08);
   transform:scale(.95) translateY(12px);opacity:0;pointer-events:none;
   transition:all .25s cubic-bezier(.34,1.56,.64,1);
 }
@@ -92,7 +92,7 @@ body.lang-th{font-family:var(--thai)}
 
 .cm{max-width:85%;padding:9px 13px;border-radius:10px;font-size:12.5px;line-height:1.6;animation:cmin .2s ease}
 .cm.bot{background:var(--surface2);border:1px solid var(--border);border-bottom-left-radius:3px;align-self:flex-start;color:var(--text)}
-.cm.user{background:linear-gradient(135deg,var(--accent),#00c4a0);border-bottom-right-radius:3px;align-self:flex-end;color:#06080d;font-weight:600}
+.cm.user{background:linear-gradient(135deg,var(--accent),#a85a1f);border-bottom-right-radius:3px;align-self:flex-end;color:#fdf8f2;font-weight:600}
 .cm.err{background:rgba(255,94,58,.1);border:1px solid var(--accent3);color:var(--accent3);align-self:flex-start;border-radius:10px}
 
 .ch-typing{display:flex;gap:4px;padding:10px 13px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;border-bottom-left-radius:3px;align-self:flex-start;width:fit-content}
@@ -102,7 +102,7 @@ body.lang-th{font-family:var(--thai)}
 
 .ch-qr{display:flex;flex-wrap:wrap;gap:5px;padding:0 14px 10px;flex-shrink:0}
 .ch-q{font-family:var(--mono);font-size:10px;padding:4px 9px;border:1px solid var(--border);border-radius:20px;background:transparent;color:var(--accent2);cursor:pointer;transition:all .18s;white-space:nowrap}
-.ch-q:hover{background:var(--accent2);color:#06080d;border-color:var(--accent2)}
+.ch-q:hover{background:var(--accent2);color:#fdf8f2;border-color:var(--accent2)}
 
 .ch-inp-row{padding:10px 12px;background:var(--surface2);border-top:1px solid var(--border);display:flex;gap:7px;align-items:center;flex-shrink:0}
 #ch-inp{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:7px 11px;color:var(--text);font-family:var(--mono);font-size:11px;outline:none;transition:border-color .2s}
@@ -110,10 +110,10 @@ body.lang-th{font-family:var(--thai)}
 #ch-inp::placeholder{color:var(--muted)}
 #ch-send{width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity .2s}
 #ch-send:hover{opacity:.8}
-#ch-send svg{width:14px;height:14px;fill:#06080d}
+#ch-send svg{width:14px;height:14px;fill:#fdf8f2}
 
 #ch-apibanner{
-  background:rgba(0,200,255,.07);border:1px solid rgba(0,200,255,.2);border-radius:6px;
+  background:rgba(138,74,35,.07);border:1px solid rgba(138,74,35,.2);border-radius:6px;
   margin:10px 14px 0;padding:9px 12px;flex-shrink:0;
   font-family:var(--mono);font-size:10px;color:#7dd3fc;line-height:1.7;
 }
@@ -134,19 +134,19 @@ body.lang-th{font-family:var(--thai)}
 
 /* ── GRID (single, faint) ── */
 #grid{position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:linear-gradient(rgba(0,255,163,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,163,.018) 1px,transparent 1px);
+  background-image:linear-gradient(rgba(182,113,46,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(182,113,46,.018) 1px,transparent 1px);
   background-size:48px 48px;animation:gpan 50s linear infinite}
 @keyframes gpan{to{background-position:48px 48px}}
 
 /* ── SINGLE GLOW ── */
-#glow{position:fixed;top:-200px;right:-100px;width:550px;height:550px;border-radius:50%;background:radial-gradient(circle,rgba(0,255,163,.06) 0%,transparent 70%);pointer-events:none;z-index:0;animation:gmove 18s ease-in-out infinite alternate}
+#glow{position:fixed;top:-200px;right:-100px;width:550px;height:550px;border-radius:50%;background:radial-gradient(circle,rgba(182,113,46,.06) 0%,transparent 70%);pointer-events:none;z-index:0;animation:gmove 18s ease-in-out infinite alternate}
 @keyframes gmove{to{transform:translate(-60px,80px)}}
 
 /* ── NAV ── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:500;height:64px;
   padding:0 52px;display:flex;justify-content:space-between;align-items:center;
-  background:rgba(6,8,13,.85);backdrop-filter:blur(20px);
+  background:rgba(245,236,224,.85);backdrop-filter:blur(20px);
   border-bottom:1px solid rgba(255,255,255,.04);
 }
 .nav-logo{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:.06em;display:flex;align-items:center;gap:10px}
@@ -160,7 +160,7 @@ nav{
 .nav-links a.active::after,.nav-links a:hover::after{transform:scaleX(1)}
 .ltog{display:flex;border:1px solid var(--border);border-radius:4px;overflow:hidden}
 .lbtn{font-family:var(--mono);font-size:11px;padding:6px 13px;border:none;background:transparent;color:var(--muted);cursor:pointer;letter-spacing:.06em;transition:all .2s}
-.lbtn.on{background:var(--accent);color:#06080d;font-weight:700}
+.lbtn.on{background:var(--accent);color:#fdf8f2;font-weight:700}
 .lbtn:not(.on):hover{color:var(--text);background:var(--surface2)}
 
 /* ── SLIDE DOTS ── */
@@ -171,7 +171,7 @@ nav{
 /* ── BACK TO TOP ── */
 #btt{position:fixed;bottom:28px;right:28px;z-index:400;width:40px;height:40px;background:var(--surface);border:1px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--muted);cursor:pointer;opacity:0;transform:translateY(12px);transition:all .3s;pointer-events:none}
 #btt.show{opacity:1;transform:none;pointer-events:auto}
-#btt:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 0 14px rgba(0,255,163,.2)}
+#btt:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 0 14px rgba(182,113,46,.2)}
 
 /* ── SECTIONS (snap) ── */
 .page{
@@ -216,17 +216,17 @@ nav{
 .h-cta{display:flex;gap:10px;flex-wrap:wrap;opacity:0;animation:sup .5s .9s forwards}
 
 .btn{font-family:var(--mono);font-size:11px;letter-spacing:.11em;text-transform:uppercase;padding:13px 22px;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:all .22s;border:none;position:relative;overflow:hidden}
-.btn::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.07);transform:translateX(-110%);transition:transform .3s}
+.btn::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.5);transform:translateX(-110%);transition:transform .3s}
 .btn:hover::before{transform:translateX(0)}
-.btn-p{background:var(--accent);color:#06080d;font-weight:700}
-.btn-p:hover{box-shadow:0 0 28px rgba(0,255,163,.4),0 6px 20px rgba(0,0,0,.4);transform:translateY(-2px)}
+.btn-p{background:var(--accent);color:#fdf8f2;font-weight:700}
+.btn-p:hover{box-shadow:0 0 28px rgba(182,113,46,.4),0 6px 20px rgba(58,42,28,.12);transform:translateY(-2px)}
 .btn-o{background:transparent;color:var(--text);border:1px solid var(--border)}
 .btn-o:hover{border-color:var(--muted);transform:translateY(-2px)}
-.btn-cv{background:transparent;color:var(--accent);border:1px solid rgba(0,255,163,.35)}
-.btn-cv:hover{background:rgba(0,255,163,.08);border-color:var(--accent);transform:translateY(-2px);box-shadow:0 0 18px rgba(0,255,163,.2)}
+.btn-cv{background:transparent;color:var(--accent);border:1px solid rgba(182,113,46,.35)}
+.btn-cv:hover{background:rgba(182,113,46,.08);border-color:var(--accent);transform:translateY(-2px);box-shadow:0 0 18px rgba(182,113,46,.2)}
 
 .mc{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:18px 22px;opacity:0;animation:sleft .5s forwards;transition:border-color .25s}
-.mc:hover{border-color:rgba(0,255,163,.22)}
+.mc:hover{border-color:rgba(182,113,46,.22)}
 .mc:nth-child(1){animation-delay:.95s}.mc:nth-child(2){animation-delay:1.1s}.mc:nth-child(3){animation-delay:1.25s}
 .mc-l{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
 .mc-v{font-size:28px;font-weight:800;line-height:1}.mc-v span{color:var(--accent)}
@@ -244,7 +244,7 @@ nav{
 #p-about p{color:var(--muted);line-height:1.82;font-size:15px;margin-bottom:14px}
 .lang-th #p-about p{font-family:var(--thai)}
 
-.term{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;font-family:var(--mono);font-size:12px;line-height:1.85;box-shadow:0 24px 48px rgba(0,0,0,.5)}
+.term{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;font-family:var(--mono);font-size:12px;line-height:1.85;box-shadow:0 24px 48px rgba(58,42,28,.14)}
 .tbar{background:var(--surface2);padding:11px 14px;display:flex;align-items:center;gap:7px;border-bottom:1px solid var(--border)}
 .d{width:11px;height:11px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
 .tttl{font-size:10px;color:var(--muted);margin-left:5px}
@@ -255,21 +255,15 @@ nav{
 /* ─────────────────────────
    PAGE 3 — SKILLS
 ───────────────────────── */
-#p-skills .pi2{width:100%;max-width:1200px}
-.sgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden}
-.sg{background:var(--surface);padding:24px;transition:background .22s;position:relative;overflow:hidden}
-.sg::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .28s}
-.sg:hover{background:var(--surface2)}.sg:hover::before{transform:scaleX(1)}
-.sg.b2::before{background:var(--accent2)}.sg.o2::before{background:var(--accent3)}.sg.p2::before{background:#a78bfa}
-.sg-ico{font-size:20px;margin-bottom:12px}
-.sg-ttl{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
-.tags{display:flex;flex-wrap:wrap;gap:5px}
-.tag{font-family:var(--mono);font-size:10px;padding:3px 8px;border-radius:2px;letter-spacing:.04em;transition:transform .12s}
-.tag:hover{transform:translateY(-1px)}
-.tg{background:rgba(0,255,163,.08);color:var(--accent);border:1px solid rgba(0,255,163,.18)}
-.tb{background:rgba(0,200,255,.08);color:var(--accent2);border:1px solid rgba(0,200,255,.18)}
+#p-skills .pi2{width:100%;max-width:980px}
+.skprose{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.skblock-h{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.skblock p{font-size:15px;line-height:1.85;color:var(--text)}
+.skblock p strong{color:var(--accent2);font-weight:600}
+.tg{background:rgba(182,113,46,.08);color:var(--accent);border:1px solid rgba(182,113,46,.18)}
+.tb{background:rgba(138,74,35,.08);color:var(--accent2);border:1px solid rgba(138,74,35,.18)}
 .to2{background:rgba(255,94,58,.08);color:var(--accent3);border:1px solid rgba(255,94,58,.18)}
-.tp2{background:rgba(167,139,250,.08);color:#a78bfa;border:1px solid rgba(167,139,250,.18)}
+.tp2{background:rgba(200,78,45,.08);color:#c84e2d;border:1px solid rgba(200,78,45,.18)}
 
 /* ─────────────────────────
    PAGE 4 — EXPERIENCE
@@ -288,7 +282,7 @@ nav{
 .eul li{font-size:13.5px;color:var(--muted);line-height:1.72;padding:2px 0 2px 18px;position:relative}
 .lang-th .eul li{font-family:var(--thai);font-size:13px}
 .eul li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:9px;top:6px}
-.ebadge{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10px;padding:4px 11px;margin-top:12px;background:rgba(0,255,163,.07);color:var(--accent);border:1px solid rgba(0,255,163,.2);border-radius:3px;letter-spacing:.05em}
+.ebadge{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10px;padding:4px 11px;margin-top:12px;background:rgba(182,113,46,.07);color:var(--accent);border:1px solid rgba(182,113,46,.2);border-radius:3px;letter-spacing:.05em}
 .ebadge::before{content:'●';font-size:7px;animation:pdot 2s infinite}
 
 /* ─────────────────────────
@@ -297,10 +291,10 @@ nav{
 #p-proj .pi2{width:100%;max-width:1200px}
 .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .pc{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:24px;transition:all .3s cubic-bezier(.25,.46,.45,.94);position:relative;overflow:hidden;cursor:default}
-.pc::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,255,163,.04),transparent);opacity:0;transition:opacity .3s}
-.pc:hover{transform:translateY(-5px);border-color:rgba(0,255,163,.28);box-shadow:0 20px 48px rgba(0,0,0,.45)}
+.pc::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(182,113,46,.04),transparent);opacity:0;transition:opacity .3s}
+.pc:hover{transform:translateY(-5px);border-color:rgba(182,113,46,.28);box-shadow:0 20px 48px rgba(58,42,28,.12)}
 .pc:hover::after{opacity:1}
-.pc.pb:hover{border-color:rgba(0,200,255,.28)}.pc.pb::after{background:linear-gradient(135deg,rgba(0,200,255,.04),transparent)}
+.pc.pb:hover{border-color:rgba(138,74,35,.28)}.pc.pb::after{background:linear-gradient(135deg,rgba(138,74,35,.04),transparent)}
 .pc.po:hover{border-color:rgba(255,94,58,.28)}.pc.po::after{background:linear-gradient(135deg,rgba(255,94,58,.04),transparent)}
 .pt{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
 .pn{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.09em}
@@ -321,19 +315,19 @@ nav{
 .cert-grid{display:flex;flex-direction:column;gap:14px}
 .cert-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:22px 26px;display:flex;align-items:center;gap:18px;transition:all .28s;position:relative;overflow:hidden}
 .cert-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--accent);transform:scaleY(0);transform-origin:bottom;transition:transform .3s}
-.cert-card:hover{border-color:rgba(0,255,163,.22);transform:translateX(4px)}
+.cert-card:hover{border-color:rgba(182,113,46,.22);transform:translateX(4px)}
 .cert-card:hover::before{transform:scaleY(1)}
-.cert-card.b2::before{background:var(--accent2)}.cert-card.b2:hover{border-color:rgba(0,200,255,.22)}
+.cert-card.b2::before{background:var(--accent2)}.cert-card.b2:hover{border-color:rgba(138,74,35,.22)}
 .cert-ico{font-size:32px;flex-shrink:0}
 .cert-name{font-size:15px;font-weight:700;margin-bottom:5px}
 .lang-th .cert-name{font-family:var(--thai)}
 .cert-iss{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.05em;margin-bottom:8px}
 .cbadge{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:10px;padding:2px 9px;border-radius:20px}
-.cbadge.g{background:rgba(0,255,163,.1);color:var(--accent);border:1px solid rgba(0,255,163,.2)}
-.cbadge.b{background:rgba(0,200,255,.1);color:var(--accent2);border:1px solid rgba(0,200,255,.2)}
+.cbadge.g{background:rgba(182,113,46,.1);color:var(--accent);border:1px solid rgba(182,113,46,.2)}
+.cbadge.b{background:rgba(138,74,35,.1);color:var(--accent2);border:1px solid rgba(138,74,35,.2)}
 .edu-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:28px 32px;display:flex;align-items:center;gap:22px;transition:border-color .28s}
-.edu-card:hover{border-color:rgba(0,255,163,.18)}
-.edu-ico{width:56px;height:56px;background:linear-gradient(135deg,rgba(0,255,163,.12),rgba(0,200,255,.08));border:1px solid rgba(0,255,163,.18);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.edu-card:hover{border-color:rgba(182,113,46,.18)}
+.edu-ico{width:56px;height:56px;background:linear-gradient(135deg,rgba(182,113,46,.12),rgba(138,74,35,.08));border:1px solid rgba(182,113,46,.18);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
 .edu-deg{font-size:17px;font-weight:700;margin-bottom:6px}
 .lang-th .edu-deg{font-family:var(--thai)}
 .edu-sch{font-size:14px;color:var(--accent);margin-bottom:6px}
@@ -351,9 +345,9 @@ nav{
 .lang-th .csub{font-family:var(--thai)}
 .clinks{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
 .cl{font-family:var(--mono);font-size:11px;color:var(--muted);text-decoration:none;padding:11px 18px;border:1px solid var(--border);border-radius:4px;display:flex;align-items:center;gap:7px;transition:all .22s;letter-spacing:.07em}
-.cl:hover{color:var(--text);border-color:var(--muted);transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.35)}
-.cl.cv{color:var(--accent);border-color:rgba(0,255,163,.3)}
-.cl.cv:hover{background:rgba(0,255,163,.08);border-color:var(--accent);box-shadow:0 8px 20px rgba(0,255,163,.18)}
+.cl:hover{color:var(--text);border-color:var(--muted);transform:translateY(-3px);box-shadow:0 8px 20px rgba(58,42,28,.15)}
+.cl.cv{color:var(--accent);border-color:rgba(182,113,46,.3)}
+.cl.cv:hover{background:rgba(182,113,46,.08);border-color:var(--accent);box-shadow:0 8px 20px rgba(182,113,46,.18)}
 
 /* ── KEYFRAMES ── */
 @keyframes sup{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
@@ -373,7 +367,6 @@ nav{
   .h-name{font-size:clamp(52px,7vw,100px)}
 }
 @media(max-width:1100px){
-  .sgrid{grid-template-columns:repeat(2,1fr)}
   .hero-r{width:200px}
   .hero-wrap{gap:28px}
 }
@@ -387,7 +380,7 @@ nav{
   nav{padding:0 20px}.nav-links{display:none}
   .hero-wrap{flex-direction:column;gap:28px}.hero-r{width:100%;flex-direction:row}.mc{flex:1}
   #p-about .pi2{grid-template-columns:1fr !important;gap:36px}
-  .sgrid{grid-template-columns:repeat(2,1fr)}
+  .skprose{grid-template-columns:1fr;gap:32px}
   .pgrid{grid-template-columns:1fr}
   .exp-row{grid-template-columns:1fr;gap:12px}
   #p-certs .pi2{grid-template-columns:1fr !important;gap:32px}
@@ -446,13 +439,13 @@ nav{
 <div class="page" id="p-hero">
 <div class="hero-wrap">
   <div class="hero-l">
-    <div class="h-eye" data-en="Available for opportunities" data-th="พร้อมรับงานใหม่">Available for opportunities</div>
+    <div class="h-eye" data-en="Open to relocation / remote" data-th="พร้อมย้ายที่พัก / ทำงานทางไกล">Open to relocation / remote</div>
     <h1 class="h-name" id="hero-name">PIYAPHAN<br><span class="stk">SUKPONG</span></h1>
     <div class="h-role"><span id="tw"></span><span class="bl"></span></div>
     <p class="h-desc"
-      data-en="Building production-grade infrastructure from Chonburi, Thailand. Passionate about automation, cloud systems, and making deployments boring."
-      data-th="สร้างระบบ Infrastructure ระดับ Production จากชลบุรี ประเทศไทย ชื่นชอบ Automation, Cloud Systems และการทำให้ Deployment น่าเบื่อ (ในแบบที่ดี)">
-      Building production-grade infrastructure from Chonburi, Thailand. Passionate about automation, cloud systems, and making deployments boring.
+      data-en="IT professional with 3+ years coordinating and delivering end-to-end IT projects across 5 stakeholder groups — from requirements gathering to production deployment, with a strong DevOps background."
+      data-th="ผู้เชี่ยวชาญด้าน IT ที่มีประสบการณ์ 3+ ปี ในการประสานงานและส่งมอบโปรเจกต์ IT แบบ End-to-end ครอบคลุม 5 กลุ่มผู้มีส่วนได้ส่วนเสีย ตั้งแต่รวบรวม Requirements จนถึง Deploy จริง พร้อมพื้นฐาน DevOps ที่แข็งแกร่ง">
+      IT professional with 3+ years coordinating and delivering end-to-end IT projects across 5 stakeholder groups — from requirements gathering to production deployment, with a strong DevOps background.
     </p>
     <div class="h-cta">
       <a href="#p-contact" class="btn btn-p" data-en="Get in touch ↗" data-th="ติดต่อฉัน ↗">Get in touch ↗</a>
@@ -463,8 +456,8 @@ nav{
   </div>
   <div class="hero-r">
     <div class="mc"><div class="mc-l" data-en="Experience" data-th="ประสบการณ์">Experience</div><div class="mc-v">3<span>+</span></div><div class="mc-s" data-en="Years" data-th="ปี">Years</div></div>
-    <div class="mc"><div class="mc-l" data-en="Live Systems" data-th="ระบบ Production">Live Systems</div><div class="mc-v">5<span>+</span></div><div class="mc-s" data-en="Production" data-th="ระบบที่ใช้งาน">Production</div></div>
-    <div class="mc"><div class="mc-l" data-en="Uptime Goal" data-th="เป้า Uptime">Uptime Goal</div><div class="mc-v" style="font-size:30px">∞</div><div class="mc-s" data-en="Always on" data-th="ไม่มีหยุด">Always on</div></div>
+    <div class="mc"><div class="mc-l" data-en="Stakeholder Groups" data-th="กลุ่มผู้มีส่วนได้ส่วนเสีย">Stakeholder Groups</div><div class="mc-v">5</div><div class="mc-s" data-en="Per project" data-th="ต่อโปรเจกต์">Per project</div></div>
+    <div class="mc"><div class="mc-l" data-en="Focus" data-th="ความเชี่ยวชาญ">Focus</div><div class="mc-v" style="font-size:22px">PM<span> + </span>DevOps</div><div class="mc-s" data-en="Coordination & infra" data-th="ประสานงาน & Infra">Coordination & infra</div></div>
   </div>
 </div>
 <div class="sh"><div class="sw"></div><span data-en="Scroll to explore" data-th="เลื่อนเพื่อดูเพิ่ม">Scroll to explore</span></div>
@@ -477,13 +470,13 @@ nav{
 <div class="pi2" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;width:100%;max-width:1200px">
   <div class="revl">
     <div class="slbl" data-en="About" data-th="เกี่ยวกับ">About</div>
-    <h2 class="stitle" id="about-title" data-en="Engineer who<br>ships real systems" data-th="วิศวกรที่สร้าง<br>ระบบจริง">Engineer who<br>ships real systems</h2>
-    <p data-en="DevOps-oriented engineer with hands-on experience designing, deploying, and maintaining production systems on AWS and on-premise infrastructure."
-       data-th="วิศวกรที่เน้น DevOps มีประสบการณ์ตรงในการออกแบบ ติดตั้ง และดูแลระบบ Production ทั้งบน AWS และ On-premise">
-       DevOps-oriented engineer with hands-on experience designing, deploying, and maintaining production systems on AWS and on-premise infrastructure.</p>
-    <p data-en="Skilled in Terraform, Docker, and CI/CD automation via GitHub Actions. Experienced in monitoring, performance optimization, and automation."
-       data-th="เชี่ยวชาญ Terraform, Docker และ CI/CD ด้วย GitHub Actions มีประสบการณ์ด้าน Monitoring, Performance Optimization และ Automation">
-       Skilled in Terraform, Docker, and CI/CD automation via GitHub Actions. Experienced in monitoring, performance optimization, and automation.</p>
+    <h2 class="stitle" id="about-title" data-en="Coordinator who<br>ships real systems" data-th="ผู้ประสานงานที่สร้าง<br>ระบบจริง">Coordinator who<br>ships real systems</h2>
+    <p data-en="IT professional with 3+ years coordinating and delivering end-to-end IT projects across 5 stakeholder groups — managing requirements gathering, solution design, and production deployment."
+       data-th="ผู้เชี่ยวชาญด้าน IT ที่มีประสบการณ์ 3+ ปี ในการประสานงานและส่งมอบโปรเจกต์ IT แบบ End-to-end ครอบคลุม 5 กลุ่มผู้มีส่วนได้ส่วนเสีย ดูแลตั้งแต่รวบรวม Requirements ออกแบบ Solution จนถึง Deploy ขึ้นระบบจริง">
+       IT professional with 3+ years coordinating and delivering end-to-end IT projects across 5 stakeholder groups — managing requirements gathering, solution design, and production deployment.</p>
+    <p data-en="Strong background in project coordination, SDLC, cross-functional collaboration, and stakeholder communication — backed by hands-on DevOps experience in Terraform, Docker, and CI/CD."
+       data-th="มีพื้นฐานแข็งแกร่งด้าน Project Coordination, SDLC, การทำงานข้ามทีม และการสื่อสารกับผู้มีส่วนได้ส่วนเสีย พร้อมประสบการณ์ DevOps ตรง ทั้ง Terraform, Docker และ CI/CD">
+       Strong background in project coordination, SDLC, cross-functional collaboration, and stakeholder communication — backed by hands-on DevOps experience in Terraform, Docker, and CI/CD.</p>
     <p data-en="Open to international opportunities and relocation."
        data-th="เปิดรับโอกาสต่างประเทศและพร้อมย้ายที่พัก">
        Open to international opportunities and relocation.</p>
@@ -495,11 +488,12 @@ nav{
         <div class="tl"><span class="tp">piyaphan@devbox</span>:<span class="tc">~</span>$ cat me.json</div>
         <div class="tl" style="margin-top:6px"><span class="to">{</span></div>
         <div class="tl" style="padding-left:14px"><span class="tk">"name"</span>: <span class="to">"Piyaphan Sukpong"</span>,</div>
-        <div class="tl" style="padding-left:14px"><span class="tk">"role"</span>: <span class="to">"System Engineer / DevOps"</span>,</div>
+        <div class="tl" style="padding-left:14px"><span class="tk">"role"</span>: <span class="to">"Technical Project Coordinator"</span>,</div>
         <div class="tl" style="padding-left:14px"><span class="tk">"location"</span>: <span class="to">"Chonburi, TH 🇹🇭"</span>,</div>
+        <div class="tl" style="padding-left:14px"><span class="tk">"stakeholder_groups"</span>: <span style="color:var(--accent)">5</span>,</div>
         <div class="tl" style="padding-left:14px"><span class="tk">"status"</span>: <span style="color:var(--accent)">"open_to_work"</span>,</div>
         <div class="tl" style="padding-left:14px"><span class="tk">"relocation"</span>: <span style="color:var(--accent)">true</span>,</div>
-        <div class="tl" style="padding-left:14px"><span class="tk">"stack"</span>: [<span class="to">"AWS"</span>, <span class="to">"Terraform"</span>, <span class="to">"Docker"</span>, <span class="to">"K3s"</span>]</div>
+        <div class="tl" style="padding-left:14px"><span class="tk">"stack"</span>: [<span class="to">"AWS"</span>, <span class="to">"Terraform"</span>, <span class="to">"Docker"</span>, <span class="to">"CI/CD"</span>]</div>
         <div class="tl"><span class="to">}</span></div>
         <div class="tl" style="margin-top:8px"><span class="tp">piyaphan@devbox</span>:<span class="tc">~</span>$ <span class="bl"></span></div>
       </div>
@@ -517,11 +511,19 @@ nav{
     <div class="slbl" style="justify-content:center" data-en="Skills" data-th="ทักษะ">Skills</div>
     <h2 class="stitle" style="text-align:center;margin-bottom:0" data-en="The full stack" data-th="ทักษะทั้งหมด">The full stack</h2>
   </div>
-  <div class="sgrid rev">
-    <div class="sg"><div class="sg-ico">☁️</div><div class="sg-ttl" data-en="Cloud & DevOps" data-th="Cloud & DevOps">Cloud & DevOps</div><div class="tags"><span class="tag tg">AWS EC2</span><span class="tag tg">AWS S3</span><span class="tag tg">Terraform</span><span class="tag tg">Docker</span><span class="tag tg">Compose</span><span class="tag tg">GitHub Actions</span><span class="tag tg">Nginx</span><span class="tag tg">Linux</span></div></div>
-    <div class="sg b2"><div class="sg-ico">⚙️</div><div class="sg-ttl" data-en="Orchestration" data-th="Orchestration">Orchestration</div><div class="tags"><span class="tag tb">Kubernetes (K3s)</span><span class="tag tb">Helm</span><span class="tag tb">Prometheus</span><span class="tag tb">Grafana</span><span class="tag tb">Nginx Ingress</span></div></div>
-    <div class="sg o2"><div class="sg-ico">🔧</div><div class="sg-ttl" data-en="Backend & Web" data-th="Backend & Web">Backend & Web</div><div class="tags"><span class="tag to2">FastAPI</span><span class="tag to2">Node.js</span><span class="tag to2">Next.js</span><span class="tag to2">REST API</span><span class="tag to2">TypeScript</span></div></div>
-    <div class="sg p2"><div class="sg-ico">🗄️</div><div class="sg-ttl" data-en="Data & Monitoring" data-th="ข้อมูล & Monitoring">Data & Monitoring</div><div class="tags"><span class="tag tp2">MySQL</span><span class="tag tp2">MariaDB</span><span class="tag tp2">SQLite</span><span class="tag tp2">Log Analysis</span><span class="tag tp2">Alerting</span></div></div>
+  <div class="skprose rev">
+    <div class="skblock">
+      <div class="skblock-h" data-en="What I do day to day" data-th="งานที่ทำเป็นประจำทุกวัน">What I do day to day</div>
+      <p data-en="Most of my time goes into <strong>project coordination</strong> — gathering requirements from stakeholders, writing functional specs, planning timelines, and reporting progress to management. I run UAT cycles, coordinate user training, and keep cross-functional teams (ops, devs, vendors) moving in the same direction through the SDLC."
+         data-th="เวลาส่วนใหญ่ของผมหมดไปกับ <strong>การประสานงานโครงการ</strong> — รวบรวม Requirements จากผู้มีส่วนได้ส่วนเสีย เขียน Functional Spec วางแผน Timeline และรายงานความคืบหน้าให้ผู้บริหาร ดูแล UAT ประสานการอบรมผู้ใช้งาน และดูแลให้ทีมข้ามสาย (Ops, Dev, Vendor) เดินไปในทิศทางเดียวกันตลอด SDLC">
+         Most of my time goes into <strong>project coordination</strong> — gathering requirements from stakeholders, writing functional specs, planning timelines, and reporting progress to management. I run UAT cycles, coordinate user training, and keep cross-functional teams (ops, devs, vendors) moving in the same direction through the SDLC.</p>
+    </div>
+    <div class="skblock">
+      <div class="skblock-h" data-en="Technical foundation I lean on" data-th="พื้นฐานเทคนิคที่ใช้สนับสนุนงาน">Technical foundation I lean on</div>
+      <p data-en="On the technical side, I'm comfortable enough with <strong>AWS, Terraform, Docker, and GitHub Actions</strong> to set up and reason about infrastructure — not as a specialist, but enough to coordinate confidently with engineers, troubleshoot at a basic level, and ship small things myself (Linux servers, Nginx, FastAPI/Node.js, SQL databases). It's a supporting toolkit for the coordination work, not the main focus."
+         data-th="ด้านเทคนิค ผมพอใช้งาน <strong>AWS, Terraform, Docker และ GitHub Actions</strong> ได้ในระดับที่เข้าใจและตั้งค่าได้ — ไม่ได้เชี่ยวชาญระดับ Specialist แต่พอที่จะประสานงานกับทีมวิศวกรได้อย่างมั่นใจ แก้ปัญหาเบื้องต้นได้ และลงมือทำเองได้บ้าง (Linux Server, Nginx, FastAPI/Node.js, ฐานข้อมูล SQL) ถือเป็นเครื่องมือสนับสนุนงานประสานงาน ไม่ใช่จุดเด่นหลัก">
+         On the technical side, I'm comfortable enough with <strong>AWS, Terraform, Docker, and GitHub Actions</strong> to set up and reason about infrastructure — not as a specialist, but enough to coordinate confidently with engineers, troubleshoot at a basic level, and ship small things myself (Linux servers, Nginx, FastAPI/Node.js, SQL databases). It's a supporting toolkit for the coordination work, not the main focus.</p>
+    </div>
   </div>
 </div>
 </div>
@@ -535,16 +537,19 @@ nav{
   <div class="exp-row rev">
     <div><div class="ed">02/2023 — PRESENT</div><div class="eco">C2K IT Service</div><div class="eloc">Bangkok, TH</div></div>
     <div>
-      <div class="etitle" data-en="System Engineer / DevOps" data-th="วิศวกรระบบ / DevOps">System Engineer / DevOps</div>
+      <div class="etitle" data-en="Technical Project Coordinator / System Engineer" data-th="ผู้ประสานงานโครงการเทคนิค / วิศวกรระบบ">Technical Project Coordinator / System Engineer</div>
       <ul class="eul">
-        <li data-en="Administered physical/virtual servers and internet infrastructure ensuring high availability, optimal performance, and network connectivity" data-th="ดูแล Server และ Infrastructure ทั้ง Physical/Virtual ให้มี High Availability และ Network ที่เสถียร">Administered physical/virtual servers and internet infrastructure ensuring high availability, optimal performance, and network connectivity</li>
-        <li data-en="Performed root cause analysis (RCA) and resolved system-level issues using logs, metrics, and debugging techniques" data-th="วิเคราะห์หาสาเหตุ (RCA) และแก้ไขปัญหาระบบด้วย Logs, Metrics และเทคนิค Debugging">Performed root cause analysis (RCA) and resolved system-level issues using logs, metrics, and debugging techniques</li>
-        <li data-en="Implemented system monitoring and alerting to proactively detect and resolve performance bottlenecks" data-th="ติดตั้ง Monitoring และ Alerting เพื่อตรวจจับและแก้ไข Bottleneck ก่อนเกิดปัญหา">Implemented system monitoring and alerting to proactively detect and resolve performance bottlenecks</li>
-        <li data-en="Automated routine tasks: log rotation, service health checks, scheduled backups — reducing manual intervention" data-th="Automate งานประจำ เช่น Log Rotation, Health Checks, Backups เพื่อลดการทำงานแบบ Manual">Automated routine tasks: log rotation, service health checks, scheduled backups — reducing manual intervention</li>
-        <li data-en="Managed Linux (Ubuntu) systems: service configuration, process management, and system security" data-th="บริหารจัดการระบบ Linux (Ubuntu) ครอบคลุม Service Config, Process Management และ Security">Managed Linux (Ubuntu) systems: service configuration, process management, and system security</li>
+        <li data-en="Gathered and translated business requirements into technical specifications and system designs" data-th="รวบรวมและแปล Business Requirements เป็น Technical Specification และ System Design">Gathered and translated business requirements into technical specifications and system designs</li>
+        <li data-en="Presented project progress updates to executive management team, communicating status, risks, and next steps clearly" data-th="นำเสนอความคืบหน้าโครงการต่อผู้บริหารระดับสูง สื่อสารสถานะ ความเสี่ยง และขั้นตอนถัดไปอย่างชัดเจน">Presented project progress updates to executive management team, communicating status, risks, and next steps clearly</li>
+        <li data-en="Conducted user training sessions — coordinating between end-users and developers to ensure smooth adoption" data-th="จัดอบรมผู้ใช้งาน ประสานระหว่าง End-user และ Developer เพื่อให้การใช้งานระบบเป็นไปอย่างราบรื่น">Conducted user training sessions — coordinating between end-users and developers to ensure smooth adoption</li>
+        <li data-en="Coordinated with vendors and internal teams to resolve infrastructure and integration issues" data-th="ประสานงานกับ Vendor และทีมภายในเพื่อแก้ไขปัญหา Infrastructure และ Integration">Coordinated with vendors and internal teams to resolve infrastructure and integration issues</li>
+        <li data-en="Performed root cause analysis (RCA) and communicated resolution status to stakeholders" data-th="วิเคราะห์หาสาเหตุ (RCA) และสื่อสารสถานะการแก้ไขให้ผู้มีส่วนได้ส่วนเสีย">Performed root cause analysis (RCA) and communicated resolution status to stakeholders</li>
+        <li data-en="Implemented monitoring and alerting systems; defined thresholds with operations teams" data-th="ติดตั้งระบบ Monitoring และ Alerting กำหนด Threshold ร่วมกับทีม Operations">Implemented monitoring and alerting systems; defined thresholds with operations teams</li>
+        <li data-en="Automated manual workflows — reducing operational overhead and human error" data-th="Automate กระบวนการที่ทำด้วยมือ ลดภาระงานและความผิดพลาด">Automated manual workflows — reducing operational overhead and human error</li>
+        <li data-en="Managed Linux-based systems, service configuration, and security compliance" data-th="บริหารระบบ Linux การตั้งค่า Service และ Security Compliance">Managed Linux-based systems, service configuration, and security compliance</li>
       </ul>
-      <div class="ebadge" style="margin-bottom:8px" data-en="Key Project: NetPulse — Monitors 24+ devices, 6,500+ daily requests, 23% block rate" data-th="โปรเจกต์หลัก: NetPulse — มอนิเตอร์ 24+ อุปกรณ์ คำขอ 6,500+/วัน Block rate 23%">Key Project: NetPulse — Monitors 24+ devices, 6,500+ daily requests, 23% block rate</div>
-      <div class="ebadge" data-en="Key Project: Golf Cart Tracking System — Live at golf-cart-devops.pages.dev" data-th="โปรเจกต์หลัก: Golf Cart Tracking System — Live ที่ golf-cart-devops.pages.dev">Key Project: Golf Cart Tracking System — Live at golf-cart-devops.pages.dev</div>
+      <div class="ebadge" style="margin-bottom:8px" data-en="Key Project: Golf Cart Tracking System — coordinated requirements across 5 stakeholder groups, shipped a QR-based tracking system" data-th="โปรเจกต์หลัก: Golf Cart Tracking System — ประสานงาน Requirements กับ 5 กลุ่มผู้มีส่วนได้ส่วนเสีย ส่งมอบระบบติดตามด้วย QR">Key Project: Golf Cart Tracking System — coordinated requirements across 5 stakeholder groups, shipped a QR-based tracking system</div>
+      <div class="ebadge" data-en="Key Project: NetPulse — network monitoring system, currently rolling out to production" data-th="โปรเจกต์หลัก: NetPulse — ระบบมอนิเตอร์เครือข่าย อยู่ระหว่างนำขึ้น Production">Key Project: NetPulse — network monitoring system, currently rolling out to production</div>
     </div>
   </div>
 </div>
@@ -556,15 +561,11 @@ nav{
 <div class="page" id="p-proj">
 <div class="pi2" style="width:100%;max-width:1200px">
   <div class="rev"><div class="slbl" data-en="Projects" data-th="โปรเจกต์">Projects</div><h2 class="stitle" data-en="Things I've built" data-th="สิ่งที่ฉันสร้าง">Things I've built</h2></div>
-  <div class="pgrid">
-    <div class="pc rev"><div class="pt"><div class="pn">01 ── FLAGSHIP</div><div class="parr">↗</div></div><div class="ptitle" data-en="NetPulse" data-th="NetPulse">NetPulse</div><div class="pdesc" data-en="VMware-hosted network monitor: 24+ devices, 6,500+ daily requests, 23% block rate via per-device domain filtering. SQLite backend, CSV/ZIP export, bandwidth alerts." data-th="ระบบมอนิเตอร์เครือข่ายบน VMware: 24+ อุปกรณ์, 6,500+ req/วัน, Block rate 23% พร้อม Export และ Alert อัตโนมัติ">VMware-hosted network monitor: 24+ devices, 6,500+ daily requests, 23% block rate via per-device domain filtering. SQLite backend, CSV/ZIP export, bandwidth alerts.</div><div class="pstack"><span class="ptag">FastAPI</span><span class="ptag">SQLite</span><span class="ptag">Nginx</span><span class="ptag">Python</span><span class="ptag">UFW</span><span class="ptag">VMware</span></div></div>
-    <div class="pc pb rev"><div class="pt"><div class="pn">02 ── DEVOPS</div><div class="parr">↗</div></div><div class="ptitle" data-en="CI/CD + K8s" data-th="CI/CD + K8s">CI/CD + K8s</div><div class="pdesc" data-en="End-to-end pipeline: GitHub Actions, K3s, Helm, Prometheus + Grafana. Auto-rollback on failed deployments." data-th="Pipeline ครบวงจร GitHub Actions, K3s, Helm และ Monitoring ด้วย Prometheus + Grafana พร้อม Auto-rollback">End-to-end pipeline: GitHub Actions, K3s, Helm, Prometheus + Grafana. Auto-rollback on failed deployments.</div><div class="pstack"><span class="ptag">GitHub Actions</span><span class="ptag">K3s</span><span class="ptag">Helm</span><span class="ptag">Prometheus</span><span class="ptag">Grafana</span></div></div>
-    <div class="pc po rev"><div class="pt"><div class="pn">03 ── FULLSTACK</div><div class="parr">↗</div></div><div class="ptitle" data-en="IT ERP System" data-th="ระบบ IT ERP">IT ERP System</div><div class="pdesc" data-en="Full-stack ERP: schema design, backend logic, deployed on AWS EC2." data-th="ระบบ ERP Full-stack ออกแบบ Database Schema, Backend Logic และ Deploy บน AWS EC2">Full-stack ERP: schema design, backend logic, deployed on AWS EC2.</div><div class="pstack"><span class="ptag">Next.js</span><span class="ptag">TypeScript</span><span class="ptag">Prisma</span><span class="ptag">MariaDB</span><span class="ptag">AWS EC2</span></div></div>
-    <div class="pc rev"><div class="pt"><div class="pn">04 ── BACKEND</div><div class="parr">↗</div></div><div class="ptitle" data-en="Slip Verification" data-th="ระบบตรวจสลิป">Slip Verification</div><div class="pdesc" data-en="OCR-based payment slip verification with Tesseract. Docker + AWS EC2." data-th="ตรวจสอบสลิปด้วย OCR (Tesseract) บรรจุใน Docker บน AWS EC2">OCR-based payment slip verification with Tesseract. Docker + AWS EC2.</div><div class="pstack"><span class="ptag">Node.js</span><span class="ptag">Docker</span><span class="ptag">Tesseract OCR</span><span class="ptag">AWS EC2</span></div></div>
-    <div class="pc pb rev"><div class="pt"><div class="pn">05 ── CLOUD</div><div class="parr">↗</div></div><div class="ptitle" data-en="AWS Portfolio" data-th="AWS Portfolio">AWS Portfolio</div><div class="pdesc" data-en="Docker + Nginx, S3 static assets, full Terraform IaC, GitHub Actions CI/CD." data-th="Docker + Nginx, Static Assets บน S3 และ Infrastructure ด้วย Terraform">Docker + Nginx, S3 static assets, full Terraform IaC, GitHub Actions CI/CD.</div><div class="pstack"><span class="ptag">Terraform</span><span class="ptag">AWS S3</span><span class="ptag">Docker</span><span class="ptag">Nginx</span><span class="ptag">GitHub Actions</span></div></div>
-    <div class="pc po rev"><div class="pt"><div class="pn">06 ── INFRA</div><div class="parr">↗</div></div><div class="ptitle" data-en="Network Segmentation" data-th="การแบ่ง VLAN">Network Segmentation</div><div class="pdesc" data-en="VLAN for IP phone isolation. Server room relocation with near-zero downtime." data-th="ตั้งค่า VLAN แยก IP Phone Network และย้าย Server Room โดยมี Downtime น้อยที่สุด">VLAN for IP phone isolation. Server room relocation with near-zero downtime.</div><div class="pstack"><span class="ptag">VLAN</span><span class="ptag">Networking</span><span class="ptag">Infrastructure</span></div></div>
-    <div class="pc rev"><div class="pt"><div class="pn">07 ── REAL-WORLD</div><a href="https://golf-cart-devops.pages.dev" target="_blank" style="text-decoration:none"><div class="parr">↗</div></a></div><div class="ptitle" data-en="Golf Cart Tracking System" data-th="ระบบสแกนรถกอล์ฟ">Golf Cart Tracking System</div><div class="pdesc" data-en="Production system replacing paper logs at a golf course. QR scan → Google Sheets via Cloudflare Workers proxy. Zero transcription errors. Full CI/CD + UptimeRobot monitoring." data-th="ระบบจริงในสนามกอล์ฟ แทนการจดด้วยมือ สแกน QR → Google Sheets ผ่าน Cloudflare Workers พร้อม CI/CD และ Monitoring">Production system replacing paper logs at a golf course. QR scan → Google Sheets via Cloudflare Workers proxy. Zero transcription errors. Full CI/CD + UptimeRobot monitoring.</div><div class="pstack"><span class="ptag">Cloudflare Pages</span><span class="ptag">Cloudflare Workers</span><span class="ptag">Terraform</span><span class="ptag">GitHub Actions</span><span class="ptag">UptimeRobot</span></div></div>
-  </div>
+  <div class="pgrid" style="grid-template-columns:repeat(3,1fr)">
+    <div class="pc rev"><div class="pt"><div class="pn" style="color:var(--accent)">COMPANY PROJECT</div><a href="https://golf-cart-devops.pages.dev" target="_blank" style="text-decoration:none"><div class="parr">↗</div></a></div><div class="ptitle" data-en="Golf Cart Tracking System" data-th="ระบบสแกนรถกอล์ฟ">Golf Cart Tracking System</div><div class="pdesc" data-en="Coordinated requirements across 5 stakeholder groups and shipped a QR-based vehicle tracking system, replacing the golf course's paper logs. Built the deployment with Cloudflare Workers, GitHub Actions CI/CD, and Terraform." data-th="ประสานงาน Requirements กับ 5 กลุ่มผู้มีส่วนได้ส่วนเสีย และส่งมอบระบบติดตามรถกอล์ฟด้วย QR แทนการจดด้วยมือ Deploy ด้วย Cloudflare Workers, GitHub Actions และ Terraform">Coordinated requirements across 5 stakeholder groups and shipped a QR-based vehicle tracking system, replacing the golf course's paper logs. Built the deployment with Cloudflare Workers, GitHub Actions CI/CD, and Terraform.</div><div class="pstack"><span class="ptag">Cloudflare Workers</span><span class="ptag">Terraform</span><span class="ptag">GitHub Actions</span></div></div>
+    <div class="pc pb rev"><div class="pt"><div class="pn" style="color:var(--accent)">COMPANY PROJECT</div><div class="parr">↗</div></div><div class="ptitle" data-en="NetPulse" data-th="NetPulse">NetPulse</div><div class="pdesc" data-en="Gathered reporting requirements from internal teams and built a VMware-hosted network monitor with per-device domain filtering, automated CSV/ZIP reports, and bandwidth-based alerts. Currently rolling out to production." data-th="รวบรวม Requirements ด้าน Reporting จากทีมภายใน และสร้างระบบมอนิเตอร์เครือข่ายบน VMware พร้อม Domain Filtering, รายงานอัตโนมัติ และ Alert ตาม Bandwidth ปัจจุบันอยู่ระหว่างนำขึ้น Production">Gathered reporting requirements from internal teams and built a VMware-hosted network monitor with per-device domain filtering, automated CSV/ZIP reports, and bandwidth-based alerts. Currently rolling out to production.</div><div class="pstack"><span class="ptag">SQLite</span><span class="ptag">VMware</span><span class="ptag">UFW</span></div></div>
+    <div class="pc po rev"><div class="pt"><div class="pn" style="color:var(--muted)">SIDE PROJECT</div><div class="parr">↗</div></div><div class="ptitle" data-en="IT Support Helpdesk App" data-th="แอปแจ้งซ่อม IT">IT Support Helpdesk App</div><div class="pdesc" data-en="Built in personal time to practice mobile development. A ticketing app connecting employees and technicians with real-time chat, GPS tagging, and Supabase-backed role access." data-th="สร้างในเวลาส่วนตัวเพื่อฝึก Mobile Development แอปแจ้งซ่อมที่เชื่อมพนักงานกับช่างเทคนิค มีแชท Real-time, GPS Tagging และระบบสิทธิ์ผ่าน Supabase">Built in personal time to practice mobile development. A ticketing app connecting employees and technicians with real-time chat, GPS tagging, and Supabase-backed role access.</div><div class="pstack"><span class="ptag">Flutter</span><span class="ptag">Supabase</span><span class="ptag">Riverpod</span></div></div>
+</div>
 </div>
 </div>
 
@@ -609,7 +610,7 @@ nav{
 <div style="text-align:center;width:100%;max-width:800px">
   <div class="slbl" style="justify-content:center" data-en="Contact" data-th="ติดต่อ">Contact</div>
   <div class="cbig rev" id="contact-big">Let's<br><span class="hi">work</span><br>together</div>
-  <p class="csub rev" data-en="Open to DevOps, Cloud, and SRE roles worldwide. International opportunities and relocation welcome." data-th="เปิดรับตำแหน่ง DevOps, Cloud และ SRE ทั่วโลก พร้อมรับโอกาสต่างประเทศและย้ายที่พัก">Open to DevOps, Cloud, and SRE roles worldwide. International opportunities and relocation welcome.</p>
+  <p class="csub rev" data-en="Open to Technical Project Coordinator, IT Project Management, and DevOps roles worldwide. International opportunities and relocation welcome." data-th="เปิดรับตำแหน่ง Technical Project Coordinator, IT Project Management และ DevOps ทั่วโลก พร้อมรับโอกาสต่างประเทศและย้ายที่พัก">Open to Technical Project Coordinator, IT Project Management, and DevOps roles worldwide. International opportunities and relocation welcome.</p>
   <div class="clinks rev">
     <a href="mailto:piyaphan1584@gmail.com" class="cl"><span>✉</span> piyaphan1584@gmail.com</a>
     <a href="https://www.linkedin.com/in/piyaphan" class="cl" target="_blank"><span>in</span> LinkedIn</a>
@@ -622,7 +623,7 @@ nav{
 </div>
 
 <!-- ── CHAT WIDGET ── -->
-<button id="chat-fab" onclick="chatToggle()" title="Chat with my DevOps bot">
+<button id="chat-fab" onclick="chatToggle()" title="Chat with my project bot">
   <svg id="cf-chat" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
   <svg id="cf-close" viewBox="0 0 24 24" style="display:none"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
 </button>
@@ -631,7 +632,7 @@ nav{
   <div class="ch-head">
     <div class="ch-av">🤖</div>
     <div>
-      <div class="ch-name">Piyaphan's DevOps Bot</div>
+      <div class="ch-name">Piyaphan's Project Bot</div>
       <div class="ch-stat">Online · Gemini AI</div>
     </div>
   </div>
@@ -641,13 +642,13 @@ nav{
     แล้วแก้ <code>YOUR_GEMINI_API_KEY</code> ในโค้ด
   </div>
   <div id="ch-msgs">
-    <div class="cm bot">สวัสดีครับ! ผม DevOps Bot ของ Piyaphan 👋<br><br>ถามได้เลยครับ — เรื่อง DevOps, โปรเจกต์, หรือวิธีติดต่อ</div>
+    <div class="cm bot">สวัสดีครับ! ผม Project Bot ของ Piyaphan 👋<br><br>ถามได้เลยครับ — เรื่อง Project Coordination, DevOps, โปรเจกต์ หรือวิธีติดต่อ</div>
   </div>
   <div class="ch-qr" id="ch-qr">
   <button class="ch-q" onclick="chatQuick('โปรเจกต์ที่ทำมีอะไรบ้าง?')">📂 Projects</button>
-  <button class="ch-q" onclick="chatQuick('ทักษะ DevOps ของ Piyaphan มีอะไรบ้าง?')">⚙️ Skills</button>
+  <button class="ch-q" onclick="chatQuick('ทักษะของ Piyaphan มีอะไรบ้าง?')">⚙️ Skills</button>
   <button class="ch-q" onclick="chatQuick('ติดต่อ Piyaphan ได้ยังไง?')">📬 Contact</button>
-  <button class="ch-q" onclick="chatQuick('อธิบาย Docker ให้หน่อย')">🐳 Docker</button>
+  <button class="ch-q" onclick="chatQuick('ประสบการณ์ด้าน Project Coordination เป็นยังไง?')">🗂️ PM Experience</button>
   <button class="ch-q" onclick="chatQuick('Terraform คืออะไร?')">🏗️ Terraform</button>
   <button class="ch-q" onclick="chatQuick('รับ Freelance ไหม?')">💼 Freelance</button>
 </div>
@@ -665,32 +666,35 @@ nav{
 // ══════════════════════════════
 const WORKER_URL = 'https://devops-bot.piyaphan1584.workers.dev';
 
-const CHAT_SYSTEM = `You are a DevOps assistant bot embedded in Piyaphan Sukpong's portfolio website.
+const CHAT_SYSTEM = `You are an assistant bot embedded in Piyaphan Sukpong's portfolio website.
 
 About Piyaphan Sukpong:
-- DevOps / System Engineer based in Chonburi, Thailand (open to relocation / remote)
-- 2+ years production experience at C2K IT Service, Bangkok (02/2023 – Present)
-- Skills: AWS (EC2, S3), Terraform (IaC), Docker/Docker Compose, GitHub Actions CI/CD, Nginx, Linux (Ubuntu/Amazon Linux), Kubernetes (K3s), Helm, Prometheus, Grafana, FastAPI, Node.js, Next.js, TypeScript, MySQL/MariaDB, SQLite, VMware, PowerShell
+- Technical Project Coordinator / System Engineer based in Chonburi, Thailand (open to relocation / remote)
+- 3+ years coordinating and delivering IT projects across multiple stakeholder groups at C2K IT Service, Bangkok (02/2023 – Present)
+- Strong background: project coordination, requirements gathering, solution design, SDLC, cross-functional collaboration, stakeholder/executive communication, user training coordination, UAT, RCA
+- DevOps/technical skills: AWS (EC2, S3), Terraform (IaC), Docker/Docker Compose, GitHub Actions CI/CD, Nginx, Linux (Ubuntu/Amazon Linux), PowerShell, FastAPI, Node.js, Next.js, REST API, MySQL/MariaDB, SQLite, VMware, Prometheus, Grafana
 - Education: B.Eng. Information Technology — Mahanakorn University of Technology (2019–2021)
+- Certifications: AWS Cloud Fundamentals, Networking Fundamentals (self-study)
 
-Projects:
-  • NetPulse — VMware-hosted network monitor: 24+ devices, 6,500+ daily requests, 23% block rate via per-device domain filtering. SQLite backend, CSV/ZIP export, bandwidth threshold alerts, UFW firewall.
-  • Golf Cart Tracking System (Live: golf-cart-devops.pages.dev) — Replaced paper logs at golf course with QR-based system. Cloudflare Workers proxy, Terraform IaC, GitHub Actions CI/CD, UptimeRobot monitoring. Zero transcription errors.
-  • CI/CD + Kubernetes Pipeline — GitHub Actions, K3s, Helm, Prometheus + Grafana, Nginx Ingress. Auto-rollback on failed deployments.
-  • IT ERP System — Full-stack: Next.js, TypeScript, Prisma, MariaDB, deployed on AWS EC2.
-  • Slip Verification System — OCR-based payment slip verification: Node.js, Tesseract OCR, Docker Compose, AWS EC2.
-  • AWS Cloud Portfolio — Docker + Nginx, S3 static assets, full Terraform IaC, GitHub Actions CI/CD.
-  • Network Segmentation (VLAN) — VLAN for IP phone network isolation.
+Company projects (at C2K IT Service):
+  • Golf Cart Tracking System (Live: golf-cart-devops.pages.dev) — Coordinated requirements across 5 stakeholder groups (Golf Manager, Operations Manager, Starter Lead, Rental Cart Lead, New Member team) and shipped a QR-based vehicle tracking system, replacing paper logs. Built with Cloudflare Workers, GitHub Actions CI/CD, Terraform.
+  • NetPulse (currently rolling out to production) — Gathered reporting requirements from internal teams; built a VMware-hosted network monitor with per-device domain filtering, automated CSV/ZIP reporting, bandwidth-based alerts, UFW-secured.
+
+Side projects (built independently to practice skills — be upfront that these are personal projects, not professional/client work):
+  • IT Support Helpdesk Mobile App — Flutter/Dart ticketing app connecting employees and technicians with real-time chat, GPS tagging, push notifications, Supabase backend (Auth + PostgreSQL + Realtime), Riverpod state management.
+  • IT ERP System — Next.js/TypeScript/Prisma/MariaDB full-stack ERP exercise, deployed on AWS EC2.
+  • Slip Verification System — OCR-based payment slip checker using Tesseract OCR, Docker, deployed on AWS EC2.
+  • AWS Cloud Portfolio — Small Dockerized app with Nginx reverse proxy, GitHub Actions CI/CD, S3 hosting, Terraform.
 
 Contact: piyaphan1584@gmail.com | LinkedIn: linkedin.com/in/piyaphan | Phone: +66 989 040 369
 GitHub: github.com/piyaphan098 | Portfolio: piyaphan098.github.io
-Available for DevOps, Cloud, SRE roles worldwide and freelance infrastructure work
+Available for Technical Project Coordinator, IT Project Management, and DevOps roles worldwide, plus freelance work
 
 Your role:
-- Answer DevOps questions clearly (CI/CD, Docker, K8s, Terraform, AWS, monitoring, etc.)
-- Tell visitors about Piyaphan's projects and skills
+- Answer questions about project coordination, IT project management, and DevOps topics clearly
+- Tell visitors about Piyaphan's projects, experience, and skills
 - Help with contact or hiring inquiries
-- Be friendly, concise, and technical when needed
+- Be friendly, concise, and professional
 - Reply in the same language the user writes in (Thai or English)
 - Keep answers short (2-4 sentences) unless a detailed explanation is needed`;
 
@@ -793,9 +797,9 @@ const cv=document.getElementById('particles'),cx=cv.getContext('2d');
 let W,H,pts=[];
 function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight}
 resize();window.addEventListener('resize',resize);
-class P{constructor(){this.r()}r(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.35;this.vy=(Math.random()-.5)*.35;this.a=Math.random()*.45+.15}u(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W||this.y<0||this.y>H)this.r()}d(){cx.beginPath();cx.arc(this.x,this.y,1.2,0,Math.PI*2);cx.fillStyle=`rgba(0,255,163,${this.a})`;cx.fill()}}
+class P{constructor(){this.r()}r(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.35;this.vy=(Math.random()-.5)*.35;this.a=Math.random()*.45+.15}u(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W||this.y<0||this.y>H)this.r()}d(){cx.beginPath();cx.arc(this.x,this.y,1.2,0,Math.PI*2);cx.fillStyle=`rgba(182,113,46,${this.a})`;cx.fill()}}
 for(let i=0;i<80;i++)pts.push(new P());
-(function frame(){cx.clearRect(0,0,W,H);for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<110){cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);cx.strokeStyle=`rgba(0,255,163,${.1*(1-d/110)})`;cx.lineWidth=.5;cx.stroke()}}pts.forEach(p=>{p.u();p.d()});requestAnimationFrame(frame)})();
+(function frame(){cx.clearRect(0,0,W,H);for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<110){cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);cx.strokeStyle=`rgba(182,113,46,${.1*(1-d/110)})`;cx.lineWidth=.5;cx.stroke()}}pts.forEach(p=>{p.u();p.d()});requestAnimationFrame(frame)})();
 
 // ════════════════════════
 // FULLPAGE SNAP + DOTS + NAV
@@ -851,7 +855,7 @@ document.querySelectorAll('.nav-links a').forEach(a=>{
 // ════════════════════════
 // TYPEWRITER
 // ════════════════════════
-const roles={en:['DevOps Engineer','Cloud Architect','Infrastructure Nerd','CI/CD Automator','System Engineer'],th:['วิศวกร DevOps','นักออกแบบ Cloud','สาย Infrastructure','ผู้เชี่ยวชาญ CI/CD','วิศวกรระบบ']};
+const roles={en:['Technical Project Coordinator','IT Project Manager','System Engineer','DevOps-minded Coordinator','Cross-functional Collaborator'],th:['ผู้ประสานงานโครงการ IT','IT Project Manager','วิศวกรระบบ','ผู้ประสานงานสาย DevOps','นักประสานงานข้ามทีม']};
 let twI=0,twC=0,twDel=false,twLang='en';
 const twEl=document.getElementById('tw');
 function twLoop(){
